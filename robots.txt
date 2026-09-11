@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://feed3362.landing-site-49r.pages.dev/sitemap.xml
+Sitemap: https://landing-site-49r.pages.dev/sitemap.xml
