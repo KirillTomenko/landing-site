@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кирилл Томенко — AI-агенты и автоматизация для бизнеса</title>
+<meta name="description" content="Проектирую и внедряю AI-агентов, RAG-системы и Telegram-ботов для бизнеса. 15+ лет в управлении — говорю на языке результата, а не терминов.">
+<meta name="theme-color" content="#FAF8F3">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='10'%20fill='%231F5C4D'/%3E%3Ctext%20x='32'%20y='43'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='bold'%20fill='%23FBFAF6'%20text-anchor='middle'%3E%D0%9A%D0%A2%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Кирилл Томенко — AI-агенты и автоматизация для бизнеса">
+<meta property="og:description" content="Автоматизирую рутинные процессы бизнеса: AI-агенты, RAG-системы, Telegram-боты. Открытый код, 7+ проектов в портфолио.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://landing-site-49r.pages.dev/">
+<meta property="og:image" content="https://landing-site-49r.pages.dev/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://landing-site-49r.pages.dev/og-image.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Кирилл Томенко","jobTitle":"Python / AI-разработчик","description":"AI-агенты, RAG-системы и Telegram-боты для бизнеса","url":"https://github.com/KirillTomenko","sameAs":["https://t.me/kirill_ai_lab","https://github.com/KirillTomenko"],"knowsAbout":["Python","AI-агенты","RAG","Telegram-боты"]}
+</script>
+<!-- Гейт для reveal-анимаций: без JS содержимое не должно быть скрыто -->
+<script>document.documentElement.classList.add('js');</script>
+<!-- Дизайн-система «Годовой отчёт»: бумажный фон, PT Serif + Inter + JetBrains Mono, зелёный акцент. Шрифты все с нативной кириллицей. -->
+<!-- Шрифты самохостятся из /fonts (без зависимости от Google Fonts CDN) -->
+<style>
+  @font-face{font-family:'PT Serif'; font-style:normal; font-weight:400; font-display:swap;
+    src:url('fonts/pt-serif-cyrillic-400-normal.woff2') format('woff2'); unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'PT Serif'; font-style:normal; font-weight:400; font-display:swap;
+    src:url('fonts/pt-serif-latin-400-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F;}
+  @font-face{font-family:'PT Serif'; font-style:normal; font-weight:700; font-display:swap;
+    src:url('fonts/pt-serif-cyrillic-700-normal.woff2') format('woff2'); unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'PT Serif'; font-style:normal; font-weight:700; font-display:swap;
+    src:url('fonts/pt-serif-latin-700-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F;}
+  @font-face{font-family:'PT Serif'; font-style:italic; font-weight:700; font-display:swap;
+    src:url('fonts/pt-serif-cyrillic-700-italic.woff2') format('woff2'); unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'PT Serif'; font-style:italic; font-weight:700; font-display:swap;
+    src:url('fonts/pt-serif-latin-700-italic.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F;}
+
+  @font-face{font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap;
+    src:url('fonts/inter-cyrillic-400-normal.woff2') format('woff2'); unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'Inter'; font-style:normal; font-weight:400; font-display:swap;
+    src:url('fonts/inter-latin-400-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F;}
+  @font-face{font-family:'Inter'; font-style:normal; font-weight:500; font-display:swap;
+    src:url('fonts/inter-cyrillic-500-normal.woff2') format('woff2'); unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'Inter'; font-style:normal; font-weight:500; font-display:swap;
+    src:url('fonts/inter-latin-500-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F;}
+  @font-face{font-family:'Inter'; font-style:normal; font-weight:600; font-display:swap;
+    src:url('fonts/inter-cyrillic-600-normal.woff2') format('woff2'); unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'Inter'; font-style:normal; font-weight:600; font-display:swap;
+    src:url('fonts/inter-latin-600-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F;}
+  @font-face{font-family:'Inter'; font-style:normal; font-weight:700; font-display:swap;
+    src:url('fonts/inter-cyrillic-700-normal.woff2') format('woff2'); unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'Inter'; font-style:normal; font-weight:700; font-display:swap;
+    src:url('fonts/inter-latin-700-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F;}
+
+  @font-face{font-family:'JetBrains Mono'; font-style:normal; font-weight:400; font-display:swap;
+    src:url('fonts/jetbrains-mono-cyrillic-400-normal.woff2') format('woff2'); unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'JetBrains Mono'; font-style:normal; font-weight:400; font-display:swap;
+    src:url('fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F;}
+  @font-face{font-family:'JetBrains Mono'; font-style:normal; font-weight:500; font-display:swap;
+    src:url('fonts/jetbrains-mono-cyrillic-500-normal.woff2') format('woff2'); unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'JetBrains Mono'; font-style:normal; font-weight:500; font-display:swap;
+    src:url('fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F;}
+
+  :root{
+    --paper:#FAF8F3;
+    --surface:#F3F0E7;
+    --ink:#1C2A42;
+    --ink-2:#616C80;
+    --accent:#1F5C4D;
+    --accent-deep:#174A3E;
+    --hairline:#D8D3C8;
+    --hairline-strong:#B9B2A3;
+    --terminal-bg:#101A2E;
+    --terminal-bar:#182338;
+    --terminal-text:#9AA7BC;
+    --terminal-muted:#8894AB;
+    --terminal-green:#6FA287;
+    --terminal-ok:#A5CDB8;
+    --radius:8px;
+    --maxw:1120px;
+    --ff-display:'PT Serif', Georgia, 'Times New Roman', serif;
+    --ff-body:'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --ff-mono:'JetBrains Mono', 'Consolas', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{
+    scroll-behavior:smooth;
+    scroll-padding-top:88px;
+  }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--ff-body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .mono{font-family:var(--ff-mono);}
+
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  /* Ссылка быстрого перехода к содержимому (видна только с клавиатуры) */
+  .skip{
+    position:absolute; left:-9999px; top:0;
+    background:var(--accent); color:#FBFAF6;
+    font-family:var(--ff-mono); font-size:13px;
+    padding:10px 16px; border-radius:0 0 6px 0;
+    z-index:100; text-decoration:none;
+  }
+  .skip:focus{left:0;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,248,243,0.92);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .logo{
+    font-family:var(--ff-mono);
+    font-size:13.5px;
+    letter-spacing:0.01em;
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none;
+  }
+  .logo .mark{
+    width:9px;height:9px;
+    background:var(--accent);
+    flex:none;
+  }
+  .logo b{font-weight:500; color:var(--ink);}
+  .logo span{color:var(--ink-2);}
+  nav.links{display:flex; gap:26px; align-items:center; font-size:14px;}
+  /* Анкоры в отдельном контейнере: на мобиле скрываются только они,
+     CTA-кнопка остаётся доступной */
+  .nav-anchors{display:flex; gap:26px; align-items:center;}
+  nav.links a.section-link{
+    color:var(--ink-2);
+    text-decoration:none;
+    padding:10px 2px; /* тач-цель по высоте */
+    transition:color .2s ease;
+  }
+  nav.links a.section-link:hover{
+    color:var(--ink);
+    text-decoration:underline;
+    text-underline-offset:4px;
+  }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:12px 22px;
+    border-radius:var(--radius);
+    font-family:var(--ff-body);
+    font-weight:600;
+    font-size:14.5px;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{
+    background:var(--accent);
+    color:#FBFAF6;
+  }
+  .btn-primary:hover{background:var(--accent-deep);}
+  .btn-ghost{
+    background:transparent;
+    border-color:var(--hairline-strong);
+    color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:92px 0 84px;
+    border-bottom:1px solid var(--hairline);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--ff-mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex; align-items:center; gap:11px;
+    margin-bottom:24px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:9px; height:9px;
+    background:var(--accent);
+    display:inline-block;
+    flex:none;
+  }
+  h1{
+    font-family:var(--ff-display);
+    font-weight:700;
+    font-size:clamp(34px, 4.5vw, 54px);
+    line-height:1.12;
+    margin:0 0 22px;
+  }
+  h1 em{
+    font-style:italic;
+    color:var(--accent);
+  }
+  .hero p.lede{
+    font-size:18px;
+    color:var(--ink-2);
+    max-width:52ch;
+    margin:0 0 28px;
+  }
+  /* Строка «что можно автоматизировать» — конкретика вместо абстрактной рутины */
+  .auto{margin-bottom:28px;}
+  .auto-label{
+    display:block;
+    font-family:var(--ff-mono);
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    margin-bottom:10px;
+  }
+  .auto-chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .hero-ctas{display:flex; gap:14px; margin-bottom:30px; flex-wrap:wrap;}
+  /* Авторский блок с портретом — подпись-«кредит» из годового отчёта */
+  .hero-meta{
+    display:flex; align-items:center; gap:16px;
+    border-top:1px solid var(--hairline);
+    padding-top:20px;
+  }
+  .hm-photo{
+    width:62px;
+    aspect-ratio:4/5;
+    flex:none;
+    border:1px solid var(--hairline-strong);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .hm-photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    /* как в .about-photo: срезаем запечённую круглую маску исходника */
+    transform:scale(1.4);
+  }
+  .hm-lines{
+    display:flex; flex-direction:column; gap:5px;
+    font-family:var(--ff-mono);
+    font-size:12.5px;
+    line-height:1.5;
+    color:var(--ink-2);
+  }
+  .hm-lines .hm-name{color:var(--ink); font-weight:500;}
+  .hm-lines a{color:var(--accent); text-underline-offset:3px;}
+
+  /* ---------- ТЕРМИНАЛ (вставка-«скриншот» в отчёте) ---------- */
+  .hero-figure{margin:0;}
+  .terminal{
+    background:var(--terminal-bg);
+    border:1px solid #26314B;
+    border-radius:var(--radius);
+    box-shadow:0 24px 48px -24px rgba(28,42,66,0.35);
+    overflow:hidden;
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:8px;
+    padding:11px 16px;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+    background:var(--terminal-bar);
+  }
+  .terminal-bar .tdot{width:9px;height:9px;border-radius:50%;opacity:0.85;}
+  .terminal-bar .t1{background:#B26A5C;}
+  .terminal-bar .t2{background:#B29A5C;}
+  .terminal-bar .t3{background:#6A9B7E;}
+  .terminal-bar .tlabel{
+    margin-left:8px;
+    font-family:var(--ff-mono);
+    font-size:12px;
+    color:var(--terminal-muted);
+  }
+  .terminal-body{
+    padding:22px 20px 24px;
+    font-family:var(--ff-mono);
+    font-size:13.5px;
+    line-height:1.7;
+    min-height:232px;
+  }
+  .terminal-body .line{
+    white-space:pre-wrap;
+    margin:0 0 8px;
+    color:var(--terminal-text);
+    overflow-wrap:break-word;
+  }
+  .terminal-body .line .prompt{color:var(--terminal-green); margin-right:8px;}
+  .terminal-body .line.ok{color:var(--terminal-ok);}
+  .cursor{
+    display:inline-block; width:7px; height:15px;
+    background:var(--terminal-green);
+    vertical-align:-2px;
+    animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+  .figure-cap{
+    margin-top:12px;
+    font-family:var(--ff-mono);
+    font-size:11.5px;
+    letter-spacing:0.02em;
+    color:var(--ink-2);
+  }
+
+  /* ---------- SECTIONS: нумерация + двойная «отчётная» линейка ---------- */
+  main section{padding:96px 0;}
+  .sec-head{max-width:640px; margin:0 0 52px;}
+  .sec-meta{
+    display:flex; align-items:baseline; gap:14px;
+    font-family:var(--ff-mono);
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    margin-bottom:10px;
+  }
+  .sec-meta .no{
+    color:var(--accent);
+    font-weight:500;
+  }
+  /* двойная линейка: жирная + тонкая, как в печатном отчёте */
+  .rule-double{
+    height:8px;
+    border-top:2px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    margin-bottom:26px;
+  }
+  h2{
+    font-family:var(--ff-display);
+    font-weight:700;
+    font-size:clamp(26px, 3vw, 36px);
+    line-height:1.18;
+    margin:0 0 14px;
+  }
+  .sec-head > p{color:var(--ink-2); font-size:16.5px; margin:0;}
+
+  /* ---------- VALUE ---------- */
+  .value{border-bottom:1px solid var(--hairline);}
+  .value-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:var(--hairline);
+    border:1px solid var(--hairline);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .value-card{
+    background:var(--paper);
+    padding:32px 30px;
+  }
+  .value-card .vlabel{
+    font-family:var(--ff-mono);
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    color:var(--accent);
+    text-transform:uppercase;
+    margin-bottom:13px;
+    display:block;
+  }
+  .value-card h3{
+    font-family:var(--ff-body);
+    font-size:19px;
+    font-weight:700;
+    margin:0 0 9px;
+  }
+  .value-card p{
+    margin:0;
+    color:var(--ink-2);
+    font-size:15px;
+  }
+
+  /* ---------- CASES (спец-таблица) ---------- */
+  .cases{border-bottom:1px solid var(--hairline);}
+  .case-log{
+    border:1px solid var(--hairline-strong);
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:var(--paper);
+  }
+  .case-log-head{
+    display:grid;
+    grid-template-columns: 2.2fr 3fr 1.6fr;
+    gap:12px;
+    padding:13px 22px;
+    font-family:var(--ff-mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    background:var(--surface);
+    border-bottom:1px solid var(--hairline);
+  }
+  .case-row{
+    display:grid;
+    grid-template-columns: 2.2fr 3fr 1.6fr;
+    padding:20px 22px;
+    border-bottom:1px solid var(--hairline);
+    align-items:center;
+    gap:12px;
+    transition:background .2s ease;
+  }
+  .case-row:last-child{border-bottom:none;}
+  .case-row:hover{background:var(--surface);}
+  .case-name{
+    font-weight:600;
+    font-size:15.5px;
+  }
+  /* Название кейса — ссылка на реальный репозиторий */
+  .case-name a{
+    color:var(--ink);
+    text-decoration:none;
+    transition:color .2s ease;
+  }
+  .case-name a:hover{
+    color:var(--accent);
+    text-decoration:underline;
+    text-underline-offset:4px;
+    text-decoration-color:var(--hairline-strong);
+  }
+  .case-name a::after{
+    content:"↗";
+    font-family:var(--ff-mono);
+    font-size:11.5px;
+    font-weight:400;
+    color:var(--ink-2);
+    margin-left:7px;
+    display:inline-block;
+    transition:color .2s ease;
+  }
+  .case-name a:hover::after{color:var(--accent);}
+  .case-name .path{
+    display:block;
+    font-family:var(--ff-mono);
+    font-weight:400;
+    font-size:12px;
+    color:var(--ink-2);
+    margin-top:4px;
+  }
+  .case-desc{
+    font-size:14.5px;
+    color:var(--ink-2);
+  }
+  .tags{display:flex; gap:6px; flex-wrap:wrap;}
+  .tag{
+    font-family:var(--ff-mono);
+    font-size:11px;
+    padding:4px 9px;
+    border-radius:4px;
+    border:1px solid var(--hairline-strong);
+    color:var(--ink-2);
+    white-space:nowrap;
+  }
+  /* Тег-ссылка на живое демо: акцентный цвет вместо нейтрального — отличает «потрогать» от просто стека */
+  a.tag-live{
+    text-decoration:none;
+    border-color:var(--accent);
+    color:var(--accent);
+    font-weight:500;
+    transition:background .2s ease, color .2s ease;
+  }
+  a.tag-live:hover{background:var(--accent); color:#FBFAF6;}
+
+  /* ---------- SCANNER ---------- */
+  .scanner{border-bottom:1px solid var(--hairline);}
+  .scanner .sec-head{margin-bottom:40px;}
+  .scan-box{
+    border:1px solid var(--hairline-strong);
+    border-radius:var(--radius);
+    background:var(--paper);
+    max-width:760px;
+    margin:0 auto;
+    padding:28px 30px;
+  }
+  .scan-label{
+    display:block;
+    font-family:var(--ff-mono);
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    margin-bottom:10px;
+  }
+  #scanText{
+    display:block;
+    width:100%;
+    min-height:128px;
+    resize:vertical;
+    background:var(--surface);
+    border:1px solid var(--hairline-strong);
+    border-radius:var(--radius);
+    padding:14px 16px;
+    font-family:var(--ff-body);
+    font-size:16px;             /* ≥16px — без автозума на iOS */
+    line-height:1.55;
+    color:var(--ink);
+  }
+  #scanText:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-color:var(--accent);}
+  #scanText::placeholder{color:var(--ink-2);}
+  .scan-chips{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px;}
+  .tag-btn{
+    cursor:pointer;
+    background:var(--paper);
+    font-size:12px;
+    padding:6px 12px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .tag-btn:hover{border-color:var(--ink); color:var(--ink);}
+  .btn[disabled]{opacity:.45; cursor:not-allowed;}
+  .btn[disabled]:hover{transform:none; background:var(--accent);}
+  .scan-actions{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; flex-wrap:wrap;
+  }
+  .scan-hint{
+    margin:0;
+    font-family:var(--ff-mono);
+    font-size:11.5px;
+    color:var(--ink-2);
+    max-width:44ch;
+  }
+  /* Шаги состояния сканера: форма — часть работающей системы, а не просто поля */
+  .scan-steps{
+    display:flex; flex-wrap:wrap; align-items:center;
+    list-style:none;
+    margin:0 0 20px; padding:0 0 14px;
+    border-bottom:1px solid var(--hairline);
+    font-family:var(--ff-mono);
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .scan-steps li{color:var(--ink-2); display:flex; align-items:center;}
+  .scan-steps li + li::before{content:"→"; margin:0 12px; color:var(--hairline-strong);}
+  .scan-steps li.on{color:var(--accent); font-weight:500;}
+  /* Состояние анализа — мини-терминал (стиль Hero) */
+  .scan-load .terminal-body{min-height:0; font-size:13px; padding:18px 18px 20px;}
+  .scan-load-cap{
+    margin:12px 0 0;
+    font-family:var(--ff-mono);
+    font-size:11.5px;
+    color:var(--ink-2);
+  }
+  /* Результат — спецификация «automation preview» */
+  .scan-top{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .scan-flag{
+    font-family:var(--ff-mono);
+    font-size:11.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+  }
+  .scan-badge{
+    font-family:var(--ff-mono);
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    padding:4px 10px;
+    border:1px solid var(--hairline-strong);
+    border-radius:4px;
+    color:var(--ink-2);
+    white-space:nowrap;
+  }
+  .scan-badge.lv-high{border-color:var(--accent); color:var(--accent);}
+  .scan-badge.lv-medium{border-color:var(--ink-2); color:var(--ink);}
+  .scan-title{
+    font-family:var(--ff-display);
+    font-weight:700;
+    font-size:clamp(26px, 3vw, 34px);
+    line-height:1.15;
+    margin:14px 0 12px;
+  }
+  .scan-title:focus{outline:none;}
+  /* Automation potential — шкала-гейдж из блоков, как столбцы в отчёте */
+  .scan-meter{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:2px;}
+  .scan-blocks{display:inline-flex; gap:3px;}
+  .scan-blocks span{width:16px; height:10px; background:var(--hairline);}
+  .scan-blocks span.b{background:var(--accent);}
+  .scan-meter-text{font-family:var(--ff-mono); font-size:12px; color:var(--ink-2);}
+  .scan-row{border-top:1px solid var(--hairline); margin-top:20px; padding-top:18px;}
+  .scan-facts{display:grid; grid-template-columns:1fr 1fr; gap:18px 32px; margin:0;}
+  .scan-facts dt{
+    font-family:var(--ff-mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:6px;
+  }
+  .scan-facts dd{margin:0; font-size:15px; color:var(--ink-2); line-height:1.55;}
+  /* Workflow — архитектурная схема: вход → AI-агент → выходы.
+     Мобайл: вертикально (рельса слева). Десктоп (≥641px): горизонтально в 3 колонки. */
+  .flow-grid{display:grid; grid-template-columns:1fr; margin-top:6px;}
+  .flow-col{display:flex; flex-direction:column; gap:8px; min-width:0;}
+  .flow-kicker{
+    font-family:var(--ff-mono);
+    font-size:10px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+  }
+  .flow-node{
+    font-family:var(--ff-mono);
+    font-size:12.5px;
+    line-height:1.45;
+    padding:9px 14px;
+    border:1px solid var(--hairline-strong);
+    border-radius:6px;
+    background:var(--surface);
+    color:var(--ink);
+  }
+  .flow-node b{font-weight:500;}
+  .flow-node small{
+    display:block;
+    font-family:var(--ff-body);
+    font-size:12px;
+    line-height:1.45;
+    color:var(--ink-2);
+    margin-top:3px;
+  }
+  .flow-node.ai{border-color:var(--accent); color:var(--accent); background:var(--paper);}
+  .flow-node.ai small{color:var(--ink-2);}
+  /* соединители: на мобиле — вертикальные отрезки со стрелкой вниз */
+  .flow-link{
+    position:relative;
+    justify-self:start;
+    margin:8px 0 8px 12px;
+    width:1px;
+    height:24px;
+    background:var(--hairline-strong);
+  }
+  .flow-link::after{
+    content:"";
+    position:absolute;
+    bottom:-1px; left:50%;
+    transform:translateX(-50%);
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    border-top:5px solid var(--ink-2);
+  }
+  /* ветка выходов: рельса из отрезков между центрами узлов + усики в каждый узел */
+  .flow-out{list-style:none; margin:0 0 0 12px; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .flow-out-item{position:relative; padding-left:18px; min-width:0;}
+  .flow-out-item::before{
+    content:"";
+    position:absolute;
+    left:0; top:50%;
+    width:18px; height:1px;
+    background:var(--hairline-strong);
+  }
+  .flow-out-item:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    left:0; top:50%;
+    width:1px; height:calc(100% + 12px); /* до центра следующего узла (gap 12px) */
+    background:var(--hairline-strong);
+  }
+  @media (min-width: 641px){
+    .flow-grid{
+      grid-template-columns:0.85fr 36px 1.2fr 36px 1.2fr;
+      align-items:center;
+      margin-top:14px;
+    }
+    .flow-link{justify-self:stretch; margin:0; width:100%; height:1px;}
+    .flow-link::after{
+      bottom:auto; top:50%; left:auto; right:-1px;
+      transform:translateY(-50%);
+      border-left:5px solid var(--ink-2);
+      border-right:none;
+      border-top:4px solid transparent;
+      border-bottom:4px solid transparent;
+    }
+    .flow-out{margin-left:0;}
+    .flow-out-item{padding-left:20px;}
+    .flow-out-item::before{width:20px;}
+  }
+  .flow-legend{font-family:var(--ff-mono); font-size:11.5px; color:var(--ink-2); margin:12px 0 0;}
+  .flow-fig{font-family:var(--ff-mono); font-size:11.5px; color:var(--ink-2); margin:4px 0 0;}
+  .scan-stack{display:flex; gap:6px; flex-wrap:wrap;}
+  .scan-final{margin-top:20px;}
+  .scan-reset{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-family:var(--ff-mono);
+    font-size:12.5px;
+    color:var(--accent);
+    padding:10px 4px;
+    text-decoration:underline;
+    text-underline-offset:3px;
+    text-decoration-color:var(--hairline);
+    transition:color .2s ease, text-decoration-color .2s ease;
+  }
+  .scan-reset:hover{color:var(--accent-deep); text-decoration-color:var(--accent);}
+  .scan-note{font-family:var(--ff-mono); font-size:11.5px; color:var(--ink-2); margin:14px 0 0;}
+  /* Поэтапная сборка превью: блоки результата появляются друг за другом */
+  .scan-result .rv{animation:rvIn .5s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay:var(--d, 0ms);}
+  @keyframes rvIn{from{opacity:0; transform:translateY(10px);}}
+
+  /* ---------- ABOUT ---------- */
+  .about{border-bottom:1px solid var(--hairline);}
+  .about-grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap:56px;
+    align-items:start;
+  }
+  /* Портрет в стиле отчёта: тонкая рамка, без тени и круглой обтравки.
+     Исходник — квадрат с запечённой круглой маской, поэтому аспект 4:5
+     + object-fit + zoom срезают фон за пределами круга. */
+  .about-photo{
+    margin:0 auto 30px;
+    max-width:280px;
+    border:1px solid var(--hairline-strong);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .about-photo img{
+    display:block;
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    transform:scale(1.4);
+  }
+  .facts{
+    border:1px solid var(--hairline-strong);
+    border-radius:var(--radius);
+  }
+  .fact{padding:26px 24px;}
+  .fact + .fact{border-top:1px solid var(--hairline);}
+  .fact-num{
+    display:block;
+    font-family:var(--ff-display);
+    font-weight:700;
+    font-size:clamp(44px, 5vw, 58px);
+    line-height:1;
+    color:var(--accent);
+    margin-bottom:9px;
+  }
+  .fact-cap{
+    display:block;
+    font-family:var(--ff-mono);
+    font-size:12px;
+    color:var(--ink-2);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    line-height:1.5;
+  }
+  .about-text p{color:var(--ink-2); font-size:16.5px; margin:0 0 18px;}
+  .about-text p:last-child{margin-bottom:0;}
+  .about-text p strong{color:var(--ink);}
+  .about-text a{
+    color:var(--accent);
+    text-decoration:underline;
+    text-decoration-color:var(--hairline-strong);
+    text-underline-offset:3px;
+  }
+  .about-text a:hover{color:var(--accent-deep);}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:var(--surface);
+    border-bottom:1px solid var(--hairline);
+  }
+  .cta-box{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .cta-box .rule-double{margin-bottom:30px;}
+  .cta-box .sec-meta{justify-content:center; margin-bottom:10px;}
+  .cta-box h2{margin-bottom:16px;}
+  .cta-box p{color:var(--ink-2); font-size:16.5px; margin:0 0 34px;}
+  .cta-actions{display:flex; justify-content:center; gap:14px; flex-wrap:wrap;}
+  .cta-note{
+    margin-top:24px;
+    font-family:var(--ff-mono);
+    font-size:12.5px;
+    color:var(--ink-2);
+  }
+
+  /* Запасной вариант связи для тех, кто не пользуется Telegram */
+  .email-fallback{
+    margin-top:34px;
+    padding-top:30px;
+    border-top:1px solid var(--hairline);
+  }
+  .email-fallback p{
+    margin:0 0 14px;
+    font-size:14.5px;
+    color:var(--ink-2);
+  }
+  .email-form{
+    display:flex;
+    gap:10px;
+    max-width:520px;
+    margin:0 auto;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .email-form .field-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    flex:1 1 100%;
+  }
+  .email-form input[type="email"],
+  .email-form input[type="tel"]{
+    flex:1 1 180px;
+    min-width:0;
+    background:var(--surface);
+    border:1px solid var(--hairline-strong);
+    border-radius:var(--radius);
+    padding:11px 14px;
+    font-family:var(--ff-body);
+    font-size:16px; /* без автозума на iOS */
+    color:var(--ink);
+  }
+  .email-form input[type="email"]:focus-visible,
+  .email-form input[type="tel"]:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-color:var(--accent);}
+  .email-form input[type="email"]::placeholder,
+  .email-form input[type="tel"]::placeholder{color:var(--ink-2);}
+  .email-form button{
+    flex:0 0 auto;
+    font-family:var(--ff-mono);
+    font-size:13px;
+    font-weight:500;
+    padding:11px 20px;
+    border-radius:var(--radius);
+    border:1px solid var(--accent);
+    background:var(--accent);
+    color:#FBFAF6;
+    cursor:pointer;
+    transition:background .2s ease, opacity .2s ease;
+  }
+  .email-form button:hover{background:var(--accent-deep);}
+  .email-form button:disabled{opacity:.6; cursor:default;}
+  .email-form-status{
+    margin-top:12px;
+    font-family:var(--ff-mono);
+    font-size:12.5px;
+    min-height:1em;
+  }
+  .email-form-status[data-state="ok"]{color:var(--accent);}
+  .email-form-status[data-state="err"]{color:#B3432B;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:38px 0;}
+  .foot-inner{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:16px;
+  }
+  .foot-links{display:flex; gap:8px; font-size:14px; flex-wrap:wrap;}
+  .foot-links a{
+    text-decoration:none;
+    color:var(--ink-2);
+    padding:8px 10px;
+    transition:color .2s ease;
+  }
+  .foot-links a:hover{
+    color:var(--ink);
+    text-decoration:underline;
+    text-underline-offset:4px;
+  }
+  .copyright{
+    font-family:var(--ff-mono);
+    font-size:12px;
+    color:var(--ink-2);
+  }
+
+  /* ---------- REVEAL ----------
+     Скрытое состояние включается только при работающем JS (<html class="js">) —
+     без скрипта все секции сразу видимы. */
+  .js .reveal{
+    opacity:0; transform:translateY(16px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .js .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1024px){
+    main section{padding:80px 0;}
+    .hero{padding:76px 0 68px;}
+    .hero-grid{gap:44px;}
+    .case-log-head, .case-row{padding-left:18px; padding-right:18px;}
+  }
+
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr; gap:44px;}
+    .value-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr; gap:36px;}
+    .about-photo{max-width:200px;}
+    .case-log-head{display:none;}
+    .case-row{grid-template-columns:1fr; gap:10px;}
+    /* Скрываются только анкоры — кнопка Telegram остаётся в шапке */
+    .nav-anchors{display:none;}
+    nav.links .btn{padding:10px 16px; font-size:13.5px;}
+    /* Scanner */
+    .scanner .sec-head{margin-bottom:32px;}
+    .scan-box{padding:24px 20px;}
+    .scan-facts{grid-template-columns:1fr; gap:14px;}
+    main section{padding:64px 0;}
+    .hero{padding:60px 0 56px;}
+  }
+
+  @media (max-width: 480px){
+    .wrap{padding:0 16px;}
+    /* Чтобы лого и CTA ужались в один ряд на узких экранах */
+    .logo span{display:none;}
+    .hero-ctas .btn, .cta-actions .btn{width:100%;}
+    /* Scanner */
+    .scan-box{padding:20px 16px;}
+    .scan-actions .btn{width:100%;}
+    .scan-reset{align-self:flex-start;}
+    .scan-hint{max-width:none;}
+    .scan-blocks span{width:11px; height:9px;}
+    .scan-steps{gap:2px;}
+    .facts{display:grid; grid-template-columns:1fr 1fr;}
+    .fact{padding:20px 18px;}
+    .fact + .fact{border-top:none; border-left:1px solid var(--hairline);}
+    main section{padding:56px 0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .cursor{animation:none; opacity:1;}
+    .js .reveal{transition:none; opacity:1; transform:none;}
+    .scan-result .rv{animation:none;}
+    .btn:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#main" aria-label="Кирилл Томенко — к началу страницы">
+      <span class="mark" aria-hidden="true"></span><b>Кирилл Томенко</b><span>&nbsp;/ AI &amp; Python</span>
+    </a>
+    <nav class="links" aria-label="Разделы страницы">
+      <div class="nav-anchors">
+        <a class="section-link" href="#value">Почему я</a>
+        <a class="section-link" href="#cases">Кейсы</a>
+        <a class="section-link" href="#about">Обо мне</a>
+      </div>
+      <a class="btn btn-primary" href="https://t.me/kirill_ai_lab" target="_blank" rel="noopener">Написать в Telegram</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">AI-агенты и автоматизация для бизнеса</p>
+      <h1 id="hero-h">Превращаю рутину бизнеса в <em>рабочего AI-агента</em></h1>
+      <p class="lede">Проектирую и внедряю AI-агентов, RAG-системы и Telegram-ботов, которые снимают с команды рутинные задачи. Рабочую демо-версию показываю за дни, а не за месяцы.</p>
+      <div class="auto">
+        <span class="auto-label">Что можно автоматизировать</span>
+        <div class="auto-chips">
+          <span class="tag">Заявки и письма</span>
+          <span class="tag">Поиск по документам</span>
+          <span class="tag">Разбор переписки и саммари</span>
+          <span class="tag">Напоминания</span>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://t.me/kirill_ai_lab" target="_blank" rel="noopener">Обсудить задачу <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#cases">Посмотреть кейсы</a>
+      </div>
+      <div class="hero-meta">
+        <span class="hm-photo"><img src="about-kirill.jpg" alt="Портрет Кирилла Томенко" width="640" height="640" decoding="async"></span>
+        <div class="hm-lines">
+          <span class="hm-name">Кирилл Томенко</span>
+          <span>15+ лет в управлении бизнесом · 2 года в Python / AI</span>
+          <span>7+ проектов · открытый код на <a href="https://github.com/KirillTomenko" target="_blank" rel="noopener">GitHub</a></span>
+        </div>
+      </div>
+    </div>
+
+    <figure class="hero-figure" aria-hidden="true">
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="tdot t1"></span><span class="tdot t2"></span><span class="tdot t3"></span>
+          <span class="tlabel">agent — bash — 80×24</span>
+        </div>
+        <div class="terminal-body" id="termBody"></div>
+      </div>
+      <figcaption class="figure-cap">Рис. 1 — сценарий агента: от рутинной задачи к демо-версии. Пример условный.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== SCAN · AI AUTOMATION SCANNER ===== -->
+<section class="scanner" id="scanner" aria-labelledby="scanner-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-meta"><span class="no">SCAN</span><span>AI Automation Scanner</span></div>
+      <div class="rule-double" aria-hidden="true"></div>
+      <h2 id="scanner-h">Есть задача, которую сотрудники делают вручную?</h2>
+      <p>Опишите рутинный процесс — я покажу, где в нём может работать AI.</p>
+    </div>
+
+    <div class="scan-box reveal">
+      <!-- Три состояния сканера: подсвечивается по мере работы (декоративно) -->
+      <ol class="scan-steps" aria-hidden="true">
+        <li data-step="input" class="on">01 задача</li>
+        <li data-step="load">02 разбор</li>
+        <li data-step="result">03 превью</li>
+      </ol>
+      <!-- Состояние 1: ввод -->
+      <form id="scanForm" class="scan-input" novalidate>
+        <label class="scan-label" for="scanText">Опишите процесс</label>
+        <textarea id="scanText" rows="4" placeholder="Например:&#10;Менеджеры получают заявки по почте,&#10;переносят данные в CRM и отвечают клиентам"></textarea>
+        <div class="scan-chips" role="group" aria-label="Примеры задач">
+          <button type="button" class="tag tag-btn" data-example="Менеджеры получают заявки из формы на сайте и по почте, вручную переносят данные в CRM и отвечают клиентам однотипными сообщениями.">Обработка заявок</button>
+          <button type="button" class="tag tag-btn" data-example="Сотрудники долго ищут нужные пункты в договорах и регламентах: документы лежат в разных папках, часть в PDF.">Поиск по документам</button>
+          <button type="button" class="tag tag-btn" data-example="В рабочих чатах теряются решения: нужно быстро находить, кто что решил по проекту, и готовить саммари обсуждений.">Разбор переписки</button>
+          <button type="button" class="tag tag-btn" data-example="Поддержка отвечает на одни и те же вопросы клиентов в чате компании — каждый раз сотрудник собирает ответ заново.">Повторяющиеся ответы</button>
+        </div>
+        <div class="scan-actions">
+          <button type="submit" class="btn btn-primary" id="scanBtn">Проанализировать <span aria-hidden="true">→</span></button>
+          <p class="scan-hint">Оценка выполняется локально в браузере — описание задачи никуда не отправляется.</p>
+        </div>
+      </form>
+
+      <!-- Состояние 2: анализ (визуальный язык терминала, без имитации реального LLM) -->
+      <div class="scan-load" id="scanLoading" role="status" aria-label="Идёт предварительный анализ" hidden>
+        <div class="terminal scan-terminal">
+          <div class="terminal-bar">
+            <span class="tdot t1"></span><span class="tdot t2"></span><span class="tdot t3"></span>
+            <span class="tlabel">automation — analyze</span>
+          </div>
+          <div class="terminal-body" id="scanTerm"></div>
+        </div>
+        <p class="scan-load-cap">Локальная оценка по правилам — описание задачи не отправляется на сервер.</p>
+      </div>
+
+      <!-- Состояние 3: результат (заполняется renderAnalysis) -->
+      <div class="scan-result" id="scanResult" aria-live="polite" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 01 · VALUE ===== -->
+<section class="value" id="value" aria-labelledby="value-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-meta"><span class="no">01</span><span>Почему со мной</span></div>
+      <div class="rule-double" aria-hidden="true"></div>
+      <h2 id="value-h">Что вы получаете, кроме кода</h2>
+      <p>Код — инструмент. Для бизнеса важнее предсказуемость: правильно понятая задача, быстрый первый результат и бюджет, который не растёт по ходу работы.</p>
+    </div>
+    <div class="value-grid reveal">
+      <div class="value-card">
+        <span class="vlabel">Опыт управления</span>
+        <h3>Смотрю на задачу глазами владельца</h3>
+        <p>15+ лет в управлении до перехода в разработку: автоматизация оценивается тем, сколько времени и денег она экономит команде, а не тем, насколько модная технология.</p>
+      </div>
+      <div class="value-card">
+        <span class="vlabel">Скорость</span>
+        <h3>Первый результат — за дни</h3>
+        <p>От согласованного технического задания до рабочей демо-версии — несколько дней. Вы проверяете идею на практике до запуска полного проекта.</p>
+      </div>
+      <div class="value-card">
+        <span class="vlabel">Прозрачность</span>
+        <h3>Цена и сроки — до старта</h3>
+        <p>Стоимость и сроки фиксируются до начала работ. Никаких «доработок по факту» и скрытых часов — вы заранее знаете, за что платите.</p>
+      </div>
+      <div class="value-card">
+        <span class="vlabel">Проверяемость</span>
+        <h3>Код можно изучить до сотрудничества</h3>
+        <p>Все проекты открыты на GitHub — качество работы видно по коду ещё до первого сообщения, а не только по обещаниям.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 · CASES ===== -->
+<section class="cases" id="cases" aria-labelledby="cases-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-meta"><span class="no">02</span><span>Портфолио</span></div>
+      <div class="rule-double" aria-hidden="true"></div>
+      <h2 id="cases-h">Что я уже строил</h2>
+      <p>Выборка из портфолио: каждый проект открыт на GitHub — какой рутине он посвящён и как решает её, видно из одной строки.</p>
+    </div>
+    <div class="case-log reveal">
+      <div class="case-log-head" aria-hidden="true">
+        <span>Проект</span>
+        <span>Задача → решение</span>
+        <span>Стек</span>
+      </div>
+      <div class="case-row">
+        <div class="case-name"><a href="https://github.com/KirillTomenko/knowledge-system" target="_blank" rel="noopener">Knowledge System</a><span class="path">~/projects/knowledge-system</span></div>
+        <div class="case-desc">Ответы на вопросы по базе знаний команды с гибридным поиском (BM25 + векторный) и прозрачным контролем качества: если источник не найден — ответ честно помечается как требующий проверки.</div>
+        <div class="tags"><span class="tag">RAG</span><span class="tag">FastAPI</span><a class="tag tag-live" href="https://knowledge-system-ln80.onrender.com" target="_blank" rel="noopener">Live demo ↗</a></div>
+      </div>
+      <div class="case-row">
+        <div class="case-name"><a href="https://github.com/KirillTomenko/ai-knowledge-assistant" target="_blank" rel="noopener">AI Knowledge Assistant</a><span class="path">~/projects/ai-knowledge-assistant</span></div>
+        <div class="case-desc">Поиск нужного документа занимает часы. AI-ассистент отвечает на вопросы по корпоративной базе знаний, а данные компании не покидают локальный контур.</div>
+        <div class="tags"><span class="tag">RAG</span><span class="tag">Local deploy</span></div>
+      </div>
+      <div class="case-row">
+        <div class="case-name"><a href="https://github.com/KirillTomenko/docling-rag-bot" target="_blank" rel="noopener">Docling RAG Bot</a><span class="path">~/projects/docling-rag-bot</span></div>
+        <div class="case-desc">Документы удобно искать прямо в мессенджере. Telegram-бот находит и разбирает документы, включая сложные ML-модели на бэкенде.</div>
+        <div class="tags"><span class="tag">Telegram</span><span class="tag">RAG</span></div>
+      </div>
+      <div class="case-row">
+        <div class="case-name"><a href="https://github.com/KirillTomenko/smart-memory-bot" target="_blank" rel="noopener">Smart Memory Bot</a><span class="path">~/projects/smart-memory-bot</span></div>
+        <div class="case-desc">Ассистент обычно «забывает» контекст после диалога. Этот бот помнит договорённости, сам ставит напоминания и ночью консолидирует память.</div>
+        <div class="tags"><span class="tag">Агент</span><span class="tag">Память</span></div>
+      </div>
+      <div class="case-row">
+        <div class="case-name"><a href="https://github.com/KirillTomenko/team-chat-agent-bot" target="_blank" rel="noopener">Team Chat Agent Bot</a><span class="path">~/projects/team-chat-agent-bot</span></div>
+        <div class="case-desc">Важные решения тонут в длинных рабочих чатах. Агент индексирует переписку группы: отвечает на вопросы по истории и сам готовит саммари.</div>
+        <div class="tags"><span class="tag">Групповые чаты</span><span class="tag">Саммари</span></div>
+      </div>
+      <div class="case-row">
+        <div class="case-name"><a href="https://github.com/KirillTomenko/recipe-rag-agent" target="_blank" rel="noopener">Recipe RAG Agent</a><span class="path">~/projects/recipe-rag-agent</span></div>
+        <div class="case-desc">Эксперимент с персонализацией: RAG-агент поверх открытой базы рецептов TheMealDB подстраивается под вкусы пользователя.</div>
+        <div class="tags"><span class="tag">RAG</span><span class="tag">Персонализация</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03 · ABOUT ===== -->
+<section class="about" id="about" aria-labelledby="about-h">
+  <div class="wrap about-grid">
+    <div class="about-side">
+      <figure class="about-photo reveal">
+        <img src="about-kirill.jpg" alt="Кирилл Томенко, Python/AI-разработчик" loading="lazy" decoding="async">
+      </figure>
+      <div class="facts reveal">
+      <div class="fact">
+        <span class="fact-num">15+</span>
+        <span class="fact-cap">лет в управлении бизнесом</span>
+      </div>
+      <div class="fact">
+        <span class="fact-num">2</span>
+        <span class="fact-cap">года практики в Python / AI-разработке</span>
+      </div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <div class="sec-meta"><span class="no">03</span><span>Обо мне</span></div>
+      <div class="rule-double" aria-hidden="true"></div>
+      <h2 id="about-h">Разработчик, который сам был заказчиком</h2>
+      <p><strong>До кода я управлял бизнесом</strong> — и знаю, как выглядит задача с другой стороны стола: бюджет, сроки, риски, ответственность за результат перед командой.</p>
+      <p>Поэтому в разработке я в первую очередь спрашиваю «зачем это нужно бизнесу», а уже потом — «на чём это писать». Собираю AI-агентов, RAG-системы и Telegram-ботов, которые решают конкретную рабочую задачу, а не демонстрируют технологию ради технологии.</p>
+      <p>Все проекты — в открытом доступе на <strong><a href="https://github.com/KirillTomenko" target="_blank" rel="noopener">GitHub</a></strong>, чтобы вы могли оценить качество кода до начала сотрудничества.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 · CTA ===== -->
+<section class="cta" aria-labelledby="cta-h">
+  <div class="wrap cta-box reveal">
+    <div class="sec-meta"><span class="no">04</span><span>Следующий шаг</span></div>
+    <div class="rule-double" aria-hidden="true"></div>
+    <h2 id="cta-h">Опишите задачу — обсудим, что можно автоматизировать</h2>
+    <p>Отвечаю в Telegram лично, обычно в течение нескольких часов. Достаточно пары строк в свободной форме — какой процесс съедает время у вашей команды. Дальше вернусь с вопросами и оценкой сроков.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="https://t.me/kirill_ai_lab" target="_blank" rel="noopener">Написать в Telegram <span aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost" href="https://github.com/KirillTomenko" target="_blank" rel="noopener">Открыть GitHub</a>
+    </div>
+    <p class="cta-note">$ agent status → готов принять новую задачу ✓</p>
+
+    <div class="email-fallback">
+      <p>Не пользуетесь Telegram? Оставьте email или телефон — напишу сам в течение дня.</p>
+      <form class="email-form" id="emailFallbackForm" novalidate>
+        <div class="field-row">
+          <input type="email" id="emailFallbackInput" name="email" placeholder="you@company.com" required autocomplete="email">
+          <input type="tel" id="phoneFallbackInput" name="phone" placeholder="Телефон (необязательно)" autocomplete="tel">
+        </div>
+        <button type="submit">Оставить контакты</button>
+      </form>
+      <p class="email-form-status" id="emailFallbackStatus" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="copyright">© 2026 Кирилл Томенко · Python / AI-разработка</div>
+    <div class="foot-links">
+      <a href="https://t.me/kirill_ai_lab" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://github.com/KirillTomenko" target="_blank" rel="noopener">GitHub</a>
+      <a href="#value">Почему я</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#about">Обо мне</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ===== Появление секций при скролле (в самом начале и в try/catch —
+     чтобы сбой в любом другом блоке ниже не оставил контент скрытым) ===== */
+  try {
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  } catch(err) { /* см. страховку ниже */ }
+
+  /* Страховка: если через 1.5с после загрузки блок так и не «появился»
+     (сбой в скрипте, медленная сеть, старый браузер без IntersectionObserver) —
+     показываем всё принудительно. Лучше видимый контент без анимации,
+     чем невидимый контент из-за анимации, которая не сработала. */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
+    }, 1500);
+  });
+
+  /* ===== Терминал: данные ===== */
+  /* Изолировано в try/catch: сбой здесь не должен ломать сканер и форму ниже */
+  try {
+  /* Сценарий — читается не-техническим заказчиком: рутина → агент → демо */
+  const lines = [
+    { p:'$', t:'agent init --task "обработка заявок из почты"' },
+    { p:'>', t:'Было: сотрудник вручную переносит заявки в CRM' },
+    { p:'>', t:'Стало: агент читает письмо → создаёт карточку → отвечает ✓', ok:true },
+    { p:'$', t:'agent deploy --env local' },
+    { p:'>', t:'Демо-версия в работе: http://localhost:8080 ✓', ok:true },
+  ];
+
+  const body = document.getElementById('termBody');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Сборка строки терминала (без innerHTML — тексты содержат «>» и «→») */
+  function buildLine(l){
+    const p = document.createElement('p');
+    p.className = 'line' + (l.ok ? ' ok' : '');
+    const pr = document.createElement('span');
+    pr.className = 'prompt';
+    pr.textContent = l.p;
+    const tx = document.createElement('span');
+    tx.textContent = l.t;
+    p.append(pr, tx);
+    return p;
+  }
+
+  function cursorEl(){
+    const c = document.createElement('span');
+    c.className = 'cursor';
+    return c;
+  }
+
+  /* Статичный вывод — без анимации (prefers-reduced-motion) */
+  function renderStatic(){
+    body.replaceChildren(...lines.map(buildLine), cursorEl());
+  }
+
+  /* Посимвольная печать: каждая строка — новый элемент, ссылка на его
+     текстовый span хранится в переменной (поиск по id не используется) */
+  function typeLines(){
+    let li = 0;
+    function nextLine(){
+      if(li >= lines.length){ body.append(cursorEl()); return; }
+      const l = lines[li++];
+      const p = buildLine(l);
+      p.lastChild.textContent = '';
+      body.append(p);
+      let ci = 0;
+      (function typeChar(){
+        if(ci < l.t.length){
+          p.lastChild.textContent += l.t[ci++];
+          setTimeout(typeChar, 16 + Math.random()*22);
+        } else {
+          setTimeout(nextLine, 260);
+        }
+      })();
+    }
+    nextLine();
+  }
+
+  if(reduced){
+    renderStatic();
+  } else {
+    /* Печать начинается, когда терминал появился во вьюпорте */
+    const tio = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ typeLines(); tio.disconnect(); }
+      });
+    }, {threshold:0.3});
+    tio.observe(document.querySelector('.terminal'));
+  }
+  } catch(err) { /* терминал — декоративный блок, страница работает и без него */ }
+
+  /* ============================================================
+     AI AUTOMATION SCANNER
+     Rule-based MVP: работает локально, без сервера и внешних API.
+     Точка будущего апгрейда — analyzeTask(): заменить на
+     fetch('/api/analyze') → renderAnalysis(result), UI не меняется.
+     ============================================================ */
+  try {
+  const SCENARIOS = {
+    leads: {
+      title: 'AI Lead Agent',
+      problem: 'Повторяющаяся обработка входящих обращений',
+      solution: 'AI классифицирует обращение, определяет приоритет и передаёт результат в нужный канал.',
+      workflow: {
+        input: 'Заявки из почты, формы и мессенджеров',
+        agent: ['AI Lead Agent', 'классифицирует обращение и определяет приоритет'],
+        outputs: [
+          ['CRM', 'карточка лида с приоритетом'],
+          ['Telegram', 'уведомление команды'],
+          ['Менеджер', 'нестандартные случаи'],
+        ],
+      },
+      stack: 'Python · LLM · Telegram · CRM',
+      potential: { level: 'high', label: 'Высокий потенциал' },
+    },
+    docs: {
+      title: 'AI Knowledge Assistant',
+      problem: 'Сотрудники тратят время на поиск информации',
+      solution: 'RAG-система позволяет задавать вопросы обычным языком и получать ответы на основе корпоративных документов.',
+      workflow: {
+        input: 'Документы компании и вопросы сотрудников',
+        agent: ['AI Knowledge Assistant', 'индексирует документы и отвечает по базе знаний (RAG)'],
+        outputs: [
+          ['Ответ с источниками', 'со ссылками на документы'],
+          ['Telegram-бот', 'поиск прямо в мессенджере'],
+          ['База знаний', 'единая точка поиска для команды'],
+        ],
+      },
+      stack: 'Python · RAG · ChromaDB · LLM',
+      potential: { level: 'high', label: 'Высокий потенциал' },
+    },
+    chat: {
+      title: 'AI Support Agent',
+      problem: 'Сотрудники регулярно отвечают на похожие вопросы',
+      solution: 'AI готовит ответы, классифицирует обращения и передаёт сложные случаи человеку.',
+      workflow: {
+        input: 'Сообщения клиентов и команды',
+        agent: ['AI Support Agent', 'классифицирует вопрос, находит контекст и готовит ответ'],
+        outputs: [
+          ['Черновик ответа', 'по базе знаний и истории'],
+          ['Менеджер', 'сложные случаи — на проверку'],
+          ['Саммари обращений', 'сводка для команды'],
+        ],
+      },
+      stack: 'Python · LLM · Telegram · RAG',
+      potential: { level: 'medium', label: 'Средний / высокий потенциал' },
+    },
+    memory: {
+      title: 'AI Memory / Task Agent',
+      problem: 'Рутинные действия после встреч и коммуникаций',
+      solution: 'AI выделяет задачи, сохраняет контекст и помогает не терять договорённости.',
+      workflow: {
+        input: 'Переписка и встречи команды',
+        agent: ['AI Memory / Task Agent', 'выделяет задачи и сохраняет контекст договорённостей'],
+        outputs: [
+          ['Задачи', 'автоматическая постановка'],
+          ['Напоминания', 'к дате и дедлайну'],
+          ['Саммари', 'итоги договорённостей'],
+        ],
+      },
+      stack: 'Python · LLM · Telegram · Memory',
+      potential: { level: 'medium', label: 'Средний потенциал' },
+    },
+    default: {
+      title: 'AI Automation',
+      problem: 'В процессе есть повторяющиеся действия, которые можно исследовать на предмет автоматизации.',
+      solution: 'Нужно разобрать процесс на шаги и определить, где AI действительно даст пользу.',
+      workflow: {
+        input: 'Описание рутинного процесса',
+        agent: ['AI Automation', 'выделяет шаги, повторяющиеся действия и точки для AI'],
+        outputs: [
+          ['AI-шаги', 'где нужна смысловая работа'],
+          ['Скрипты', 'для чётких правил'],
+          ['Контроль человеком', 'проверка результата'],
+        ],
+      },
+      stack: 'Python · LLM · Automation',
+      potential: { level: 'review', label: 'Нужен разбор' },
+    },
+  };
+
+  /* Смысловые признаки сценариев (подстроки; проверка по порядку leads → docs → chat → memory) */
+  const KEYWORDS = {
+    leads:  ['заявк', 'лид', 'обращени', 'входящ', 'отклик', 'запрос клиента', 'клиент написал', 'почт', 'email', 'mail', 'telegram', 'whatsapp'],
+    docs:   ['документ', 'pdf', 'файл', 'информаци', 'инструкц', 'база знаний', 'базе знаний', 'регламент', 'договор', 'искать', 'поиск', 'внутренн'],
+    chat:   ['чат', 'переписк', 'сообщени', 'поддержк', 'ответ', 'вопрос', 'консультац', 'клиент'],
+    memory: ['напомин', 'поручен', 'совещан', 'саммари', 'резюме', 'встреч', 'дедлайн', 'помнить', 'вспомин'],
+  };
+
+  /* Качественная шкала потенциала — без псевдо-точных процентов */
+  const POTENTIAL_METER = {
+    high:   { badge: 'HIGH',   blocks: 9 },
+    medium: { badge: 'MEDIUM', blocks: 6 },
+    low:    { badge: 'LOW',    blocks: 3 },
+    review: { badge: 'REVIEW', blocks: 3 },
+  };
+
+  const scanForm = document.getElementById('scanForm');
+  const scanInput = document.getElementById('scanText');
+  const scanBtn = document.getElementById('scanBtn');
+  const scanLoading = document.getElementById('scanLoading');
+  const scanTerm = document.getElementById('scanTerm');
+  const scanResult = document.getElementById('scanResult');
+  const TME_URL = 'https://t.me/kirill_ai_lab';
+
+  /* --- Анализ ------------------------------------------------ */
+
+  /* Единственная точка входа: сейчас — локальный rule-based,
+     позже — async fetch('/api/analyze'). Возвращаемый shape не меняется. */
+  function analyzeTask(text) {
+    return analyzeLocally(text);
+  }
+
+  function analyzeLocally(text) {
+    const t = ' ' + text.toLowerCase() + ' ';
+    const has = (word) => t.includes(word);
+    if (KEYWORDS.leads.some(has)) return SCENARIOS.leads;
+    if (KEYWORDS.docs.some(has)) return SCENARIOS.docs;
+    if (KEYWORDS.chat.some(has)) return SCENARIOS.chat;
+    if (KEYWORDS.memory.some(has)) return SCENARIOS.memory;
+    return SCENARIOS.default; // честный дефолт: «нужен разбор», а не выдуманная оценка
+  }
+
+  /* --- Состояния --------------------------------------------- */
+
+  function startAnalysis() {
+    const text = scanInput.value.trim();
+    if (!text) return; // двойная защита при отключённой кнопке
+    if (reduced) { renderAnalysis(analyzeTask(text)); return; } // reduced-motion: результат сразу
+    showLoading(() => renderAnalysis(analyzeTask(text)));
+  }
+
+  function showLoading(done) {
+    scanInput.closest('form').hidden = true;
+    scanResult.hidden = true;
+    scanLoading.hidden = false;
+    setScanStep('load');
+    playLoading(done);
+  }
+
+  /* Визуальный язык анализа: командная строка, без имитации «думает LLM» */
+  const SCAN_LINES = [
+    { p: '$', t: 'automation analyze' },
+    { p: '>', t: 'parsing business process' },
+    { p: '>', t: 'identifying repetitive tasks' },
+    { p: '>', t: 'mapping decisions' },
+    { p: '>', t: 'designing workflow' },
+    { p: '✓', t: 'analysis ready', ok: true },
+  ];
+  /* Пауза после появления каждой строки: вся последовательность ≈1.4 c */
+  const SCAN_TEMPO = [240, 150, 150, 150, 150, 220];
+
+  function playLoading(done) {
+    scanTerm.replaceChildren();
+    let i = 0;
+    (function next() {
+      if (i >= SCAN_LINES.length) {
+        scanTerm.append(cursorEl());
+        setTimeout(done, 240);
+        return;
+      }
+      scanTerm.appendChild(buildLine(SCAN_LINES[i]));
+      const delay = SCAN_TEMPO[i];
+      i += 1;
+      setTimeout(next, delay);
+    })();
+  }
+
+  /* Подсветка шага состояния (01 задача → 02 разбор → 03 превью) */
+  const scanStepItems = document.querySelectorAll('.scan-steps li');
+  function setScanStep(name) {
+    scanStepItems.forEach((li) => li.classList.toggle('on', li.dataset.step === name));
+  }
+
+  function renderAnalysis(result) {
+    scanLoading.hidden = true;
+    scanResult.innerHTML = buildResultHTML(result);
+    scanResult.hidden = false;
+    setScanStep('result');
+    /* фокус — на заголовок результата: контекст для клавиатуры и скринридера */
+    scanResult.querySelector('.scan-title').focus();
+  }
+
+  function resetScanner() {
+    scanResult.hidden = true;
+    scanLoading.hidden = true;
+    scanInput.closest('form').hidden = false;
+    setScanStep('input');
+    scanInput.focus();
+  }
+
+  /* --- Рендер результата -------------------------------------- */
+
+  /* Узел workflow-схемы: mono-название + пояснение обычным шрифтом.
+     d — задержка появления (мс): диаграмма собирается по шагам.
+     plain — без собственной анимации (когда анимируется обёртка). */
+  function flowNode(label, sub, opts) {
+    const cls = (opts && opts.cls) ? ' ' + opts.cls : '';
+    const rv = (opts && opts.plain) ? '' : ' rv';
+    return `<div class="flow-node${rv}${cls}" style="--d:${(opts && opts.d) || 0}ms"><b>${label}</b>${sub ? `<small>${sub}</small>` : ''}</div>`;
+  }
+
+  /* Архитектурная схема: input → AI-агент → ветка выходов.
+     Мобайл — вертикально (рельса слева), десктоп — горизонтальные колонки. */
+  function renderWorkflow(w) {
+    const outs = w.outputs.map(([label, sub], i) => `
+      <li class="flow-out-item rv" style="--d:${500 + i * 80}ms">
+        ${flowNode(label, sub, { plain: true })}
+      </li>`).join('');
+    return `
+      <div class="flow-grid" role="group" aria-label="Схема решения: ${w.agent[0]} — от входных данных к результатам">
+        <div class="flow-col">
+          <span class="flow-kicker" aria-hidden="true">input</span>
+          ${flowNode(w.input, null, { d: 260 })}
+        </div>
+        <span class="flow-link rv" style="--d:300ms" aria-hidden="true"></span>
+        <div class="flow-col">
+          <span class="flow-kicker" aria-hidden="true">ai agent</span>
+          ${flowNode(w.agent[0], w.agent[1], { cls: 'ai', d: 340 })}
+        </div>
+        <span class="flow-link rv" style="--d:430ms" aria-hidden="true"></span>
+        <div class="flow-col">
+          <span class="flow-kicker" aria-hidden="true">outputs</span>
+          <ul class="flow-out">${outs}</ul>
+        </div>
+      </div>`;
+  }
+
+  function truncate(text, max) {
+    return text.length > max ? text.slice(0, max).trimEnd() + '…' : text;
+  }
+
+  /* Telegram с предзаполненным контекстом: t.me поддерживает параметр text
+     (наименее хрупкий вариант; клиенты, которые его игнорируют, просто откроют чат) */
+  function buildTelegramHref(task, result) {
+    const msg =
+      'Здравствуйте! Хочу обсудить автоматизацию задачи:\n\n' +
+      '«' + truncate(task, 180) + '»\n\n' +
+      '(предварительный сценарий со страницы: ' + result.title + ')';
+    return TME_URL + '?text=' + encodeURIComponent(msg);
+  }
+
+  function buildResultHTML(result) {
+    const meter = POTENTIAL_METER[result.potential.level] || POTENTIAL_METER.review;
+    const blocks = Array.from({ length: 10 }, (_, i) =>
+      `<span${i < meter.blocks ? ' class="b"' : ''}></span>`).join('');
+    const stackTags = result.stack.split('·')
+      .map((s) => `<span class="tag">${s.trim()}</span>`).join('');
+    return `
+      <div class="scan-top rv">
+        <span class="scan-flag">Automation preview</span>
+      </div>
+      <h3 class="scan-title rv" tabindex="-1" style="--d:60ms">${result.title}</h3>
+      <div class="scan-potential rv" style="--d:110ms">
+        <span class="scan-label">Automation potential</span>
+        <div class="scan-meter">
+          <span class="scan-blocks" aria-hidden="true">${blocks}</span>
+          <span class="scan-badge lv-${result.potential.level}">${meter.badge}</span>
+          <span class="scan-meter-text">${result.potential.label}</span>
+        </div>
+      </div>
+      <dl class="scan-facts scan-row" style="--d:160ms">
+        <div><dt>Проблема</dt><dd>${result.problem}</dd></div>
+        <div><dt>Решение</dt><dd>${result.solution}</dd></div>
+      </dl>
+      <div class="scan-row">
+        <span class="scan-label">Workflow</span>
+        ${renderWorkflow(result.workflow)}
+        <p class="flow-legend">Зелёная рамка — ядро с AI-логикой; остальное — системы и люди вокруг него.</p>
+        <p class="flow-fig">Рис. 2 — превью архитектуры. Схема условная: финальная зависит от процесса и систем.</p>
+      </div>
+      <div class="scan-row" style="--d:270ms">
+        <span class="scan-label">Stack</span>
+        <div class="scan-stack">${stackTags}</div>
+      </div>
+      <div class="scan-row scan-actions scan-final" style="--d:330ms">
+        <a class="btn btn-primary" id="scanCta" href="${buildTelegramHref(scanInput.value.trim(), result)}" target="_blank" rel="noopener">Обсудить такую автоматизацию <span aria-hidden="true">→</span></a>
+        <button type="button" class="scan-reset" id="scanReset">← Изменить задачу</button>
+      </div>
+      <p class="scan-note" style="--d:370ms">Предварительная оценка. Реальная архитектура зависит от процесса и используемых систем.</p>
+    `;
+  }
+
+  /* --- События ------------------------------------------------- */
+
+  scanBtn.disabled = !scanInput.value.trim();
+  scanInput.addEventListener('input', () => {
+    scanBtn.disabled = !scanInput.value.trim();
+  });
+
+  /* пример-чипы: подставляют текст, но анализ запускает пользователь */
+  document.querySelectorAll('.tag-btn').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      scanInput.value = chip.dataset.example;
+      scanBtn.disabled = false;
+      scanInput.focus();
+    });
+  });
+
+  scanForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    startAnalysis();
+  });
+
+  scanResult.addEventListener('click', (e) => {
+    if (e.target.closest('#scanReset')) resetScanner();
+  });
+  } catch(err) { /* сканер — вспомогательный демо-блок, остальная страница работает и без него */ }
+
+  /* Запасная форма «оставить контакты» — сайт статический, поэтому отправка идёт
+     через Web3Forms (бесплатный сервис приёма форм без бэкенда).
+     ЗАМЕНИ WEB3FORMS_ACCESS_KEY на свой ключ с https://web3forms.com/ (бесплатно, без регистрации). */
+  try {
+  const WEB3FORMS_ACCESS_KEY = 'f2adf3bd-3a1f-4709-9570-65047a67e390';
+
+  const emailForm = document.getElementById('emailFallbackForm');
+  const emailInput = document.getElementById('emailFallbackInput');
+  const phoneInput = document.getElementById('phoneFallbackInput');
+  const emailStatus = document.getElementById('emailFallbackStatus');
+
+  emailForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    const phone = phoneInput.value.trim();
+    if (!email) return;
+
+    const submitBtn = emailForm.querySelector('button');
+    submitBtn.disabled = true;
+    emailStatus.dataset.state = '';
+    emailStatus.textContent = 'Отправляю…';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: 'Новая заявка с лендинга',
+          from_name: 'Landing — форма контактов',
+          email: email,
+          phone: phone || 'не указан',
+          message: `Оставлены контакты для связи.\nEmail: ${email}\nТелефон: ${phone || 'не указан'}`,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        emailStatus.dataset.state = 'ok';
+        emailStatus.textContent = 'Спасибо! Напишу вам в течение дня.';
+        emailForm.reset();
+      } else {
+        throw new Error(data.message || 'unknown error');
+      }
+    } catch (err) {
+      emailStatus.dataset.state = 'err';
+      emailStatus.textContent = 'Не получилось отправить. Напишите, пожалуйста, в Telegram.';
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+  } catch(err) { /* форма — запасной канал связи, основная страница работает и без него */ }
+</script>
+
+</body>
+</html>
